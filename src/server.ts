@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import { payments } from './bd';
 
 const app = express();
 const port = 3000;
@@ -16,7 +17,7 @@ interface PaymentRequest {
 // Rota de Pagamentos
 app.post("/payments", (req: Request, res: Response) => {
     const { amount, currency, payer, payee } = (req.body || {}) as PaymentRequest;
-    
+
     // Validações iniciais
     if (!amount) {
         res.status(400).json({ error: 'Valor inválido' });
@@ -40,6 +41,17 @@ app.post("/payments", (req: Request, res: Response) => {
         res.status(400).json({ error: 'Valor inválido' });
         return;
     }
+
+    // Pagamento
+    const payment = {
+        amount,
+        currency,
+        payer,
+        payee
+    };
+
+    payments.push(payment);
+
     res.status(201).json({ id: 'pay_001', status: 'created' });
 })
 
