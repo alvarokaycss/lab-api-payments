@@ -60,6 +60,8 @@ app.get("/payments", (req: Request, res: Response) => {
     return res.status(200).json(payments);
 })
 
-app.listen(port, () => {
+export const server = app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
+
+export { app };
