@@ -38,13 +38,14 @@ Novas implementações seguem o fluxo de integração através de Pull Requests,
 
 ## Nota do Autor
 
-Durante a execução deste desafio prático, pude colocar em prática o ciclo de versionamento. 
+Durante a execução do desafio prático, vivenciei um pouco de como realmente funciona o ciclo de vida do desenvolvimento de entrega de software.
 
 **O que acertei:**
-- Estruturação da API com Node.js e TypeScript.
-- Criação das rotas com validações e retorno de status HTTP adequados.
-- Criação inicial das três branches obrigatórias e sincronização com o repositório remoto.
-- Criação de tags de versão e adição da regra de proteção na branch main.
+- Estruturação da API com Node.js, Express e TypeScript.
+- Criação das rotas com validações e respostas HTTP adequadas.
+- Criação de tags de versão e configuração de proteção na branch main.
+- Implementação de testes automatizados de integração usando o test runner nativo do Node e Supertest.
+- Execução impecável do fluxo de Pull Requests (feature -> dev -> stage -> main) na etapa final (case de testes).
 
-**Onde me confundi:**
-- Durante o fluxo de aprovação da minha nova funcionalidade, acabei fazendo o merge do Pull Request diretamente na branch `stage` (e de lá para a `main`), pulando a integração na branch `dev`. Como resultado, a `dev` acabou ficando desatualizada em relação à produção. Lição aprendida..
+**O que aprendi errando:**
+- Na primeira tentativa de integração de código, pulei a branch `dev` e fiz o merge do PR direto na `stage`. Isso dessincronizou os ambientes locais e remotos. A lição tirada foi a extrema importância de sempre conferir a branch de destino (Base branch) ao abrir um Pull Request, garantindo que o código passe por todas as esteiras na ordem correta.
