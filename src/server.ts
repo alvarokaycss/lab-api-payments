@@ -55,6 +55,11 @@ app.post("/payments", (req: Request, res: Response) => {
     res.status(201).json({ id: 'pay_001', status: 'created' });
 })
 
+// Rota de Listar Pagamentos
+app.get("/payments", (req: Request, res: Response) => {
+    return res.status(200).json(payments);
+})
+
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
